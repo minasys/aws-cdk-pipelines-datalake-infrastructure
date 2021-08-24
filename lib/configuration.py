@@ -46,7 +46,6 @@ S3_PURPOSE_BUILT_BUCKET = 's3_purpose_built_bucket'
 def get_local_configuration(environment: str) -> dict:
     """
     Provides manually configured variables that are validated for quality and safety.
-
     @param: environment str: The environment used to retrieve corresponding configuration
     @raises: Exception: Throws an exception if the resource_name_prefix does not conform
     @raises: Exception: Throws an exception if the requested environment does not exist
@@ -54,32 +53,32 @@ def get_local_configuration(environment: str) -> dict:
     """
     local_mapping = {
         DEPLOYMENT: {
-            ACCOUNT_ID: '',
+            ACCOUNT_ID: '199002675716',
             REGION: 'us-east-2',
-            GITHUB_REPOSITORY_OWNER_NAME: '',
+            GITHUB_REPOSITORY_OWNER_NAME: 'minasys',
             # If you use GitHub / GitHub Enterprise, this will be the organization name
-            GITHUB_REPOSITORY_NAME: '',
+            GITHUB_REPOSITORY_NAME: 'aws-cdk-pipelines-datalake-infrastructure',
             # Use your forked repo here!
             # This is used in the Logical Id of CloudFormation resources
             # We recommend capital case for consistency. e.g. DataLakeCdkBlog
-            LOGICAL_ID_PREFIX: '',
+            LOGICAL_ID_PREFIX: 'DataLakeCDK',
             # This is used in resources that must be globally unique!
             # It may only contain alphanumeric characters, hyphens, and cannot contain trailing hyphens
             # E.g. unique-identifier-data-lake
-            RESOURCE_NAME_PREFIX: '',
+            RESOURCE_NAME_PREFIX: 'cdk-e2e',
         },
         DEV: {
-            ACCOUNT_ID: '',
+            ACCOUNT_ID: '831763274584',
             REGION: 'us-east-2',
             VPC_CIDR: '10.20.0.0/24'
         },
         TEST: {
-            ACCOUNT_ID: '',
+            ACCOUNT_ID: '305449439417',
             REGION: 'us-east-2',
             VPC_CIDR: '10.10.0.0/24'
         },
         PROD: {
-            ACCOUNT_ID: '',
+            ACCOUNT_ID: '319434901052',
             REGION: 'us-east-2',
             VPC_CIDR: '10.0.0.0/24'
         }
@@ -102,9 +101,7 @@ def get_local_configuration(environment: str) -> dict:
 def get_environment_configuration(environment: str) -> dict:
     """
     Provides all configuration values for the given target environment
-
     @param environment str: The environment used to retrieve corresponding configuration
-
     @return: dict:
     """
     cloudformation_output_mapping = {
@@ -134,7 +131,6 @@ def get_all_configurations() -> dict:
     """
     Returns a dict mapping of configurations for all environments.
     These keys correspond to static values, CloudFormation outputs, and Secrets Manager (passwords only) records.
-
     @return: dict:
     """
     return {
@@ -151,7 +147,6 @@ def get_all_configurations() -> dict:
 
 def get_logical_id_prefix() -> str:
     """Returns the logical id prefix to apply to all CloudFormation resources
-
     @return: str:
     """
     return get_local_configuration(DEPLOYMENT)[LOGICAL_ID_PREFIX]
@@ -159,7 +154,6 @@ def get_logical_id_prefix() -> str:
 
 def get_resource_name_prefix() -> str:
     """Returns the resource name prefix to apply to all resources names
-
     @return: str:
     """
     return get_local_configuration(DEPLOYMENT)[RESOURCE_NAME_PREFIX]
