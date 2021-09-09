@@ -53,7 +53,7 @@ def get_local_configuration(environment: str) -> dict:
     """
     local_mapping = {
         DEPLOYMENT: {
-            ACCOUNT_ID: '250608293651',
+            ACCOUNT_ID: '423530333116',
             REGION: 'us-east-1',
             GITHUB_REPOSITORY_OWNER_NAME: 'minasys',
             # If you use GitHub / GitHub Enterprise, this will be the organization name
@@ -68,17 +68,17 @@ def get_local_configuration(environment: str) -> dict:
             RESOURCE_NAME_PREFIX: 'cdk-e2e',
         },
         DEV: {
-            ACCOUNT_ID: '250608293651',
+            ACCOUNT_ID: '423530333116',
             REGION: 'us-east-1',
             VPC_CIDR: '10.20.0.0/24'
         },
         TEST: {
-            ACCOUNT_ID: '250608293651',
+            ACCOUNT_ID: '423530333116',
             REGION: 'us-east-1',
             VPC_CIDR: '10.10.0.0/24'
         },
         PROD: {
-            ACCOUNT_ID: '250608293651',
+            ACCOUNT_ID: '423530333116',
             REGION: 'us-east-1',
             VPC_CIDR: '10.0.0.0/24'
         }
